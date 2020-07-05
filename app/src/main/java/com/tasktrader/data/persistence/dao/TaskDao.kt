@@ -26,4 +26,12 @@ abstract class TaskDao : BaseDao<TaskEntity> {
     @Query("UPDATE $TASK_TABLE SET $TASK_COMPLETED = :isCompleted WHERE $TASK_ID = :id")
     abstract suspend fun updateIsCompleted(id: Long, isCompleted: Boolean): Int
 
+    /**
+     * Returns the task by the id
+     * @param id The task id
+     * @return The [TaskEntity] object
+     */
+    @Query("SELECT * FROM $TASK_TABLE WHERE $TASK_ID = :id")
+    abstract suspend fun get(id: Long): TaskEntity
+
 }
