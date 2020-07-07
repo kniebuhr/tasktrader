@@ -12,7 +12,8 @@ import javax.inject.Inject
 class TaskListViewModel(
     private val completeTask: CompleteTask,
     private val getTaskList: GetTaskList,
-    private val getTask: GetTask
+    private val getTask: GetTask,
+    private val router: TaskListRouter
 ) : BaseViewModel<TaskListModel, TaskListIntent>() {
 
     private val _model = MutableLiveData<TaskListModel>()
@@ -22,6 +23,7 @@ class TaskListViewModel(
         when (intent) {
             TaskListIntent.LoadData -> handleLoadData()
             is TaskListIntent.CompleteTask -> handleCompleteTask(intent.task, intent.position)
+            TaskListIntent.NewTask -> handleNewTask()
         }
     }
 
@@ -47,17 +49,23 @@ class TaskListViewModel(
         }
     }
 
+    private fun handleNewTask() {
+        router.routeToNewTask()
+    }
+
     @Suppress("UNCHECKED_CAST")
     class Factory @Inject constructor(
         private val completeTask: CompleteTask,
         private val getTaskList: GetTaskList,
-        private val getTask: GetTask
+        private val getTask: GetTask,
+        private val router: TaskListRouter
     ) : ViewModelProvider.NewInstanceFactory() {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return TaskListViewModel(
                 completeTask = completeTask,
                 getTaskList = getTaskList,
-                getTask = getTask
+                getTask = getTask,
+                router = router
             ) as T
         }
     }
