@@ -35,7 +35,10 @@ class TaskListActivity : BaseActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menu?.add(Menu.NONE, MENU_ADD, Menu.NONE, R.string.new_task_title)?.setIcon(R.drawable.ic_add)
+        menu?.add(Menu.NONE, MENU_ADD, Menu.NONE, R.string.new_task_title)?.apply {
+            setIcon(R.drawable.ic_add)
+            setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM)
+        }
         return super.onCreateOptionsMenu(menu)
     }
 
