@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Task Trader</string>
+
+    <!--TASK LIST-->
+    <string name="task_list_title">@string/app_name</string>
+
+    <!--NEW TASK-->
+    <string name="new_task_title">Nova Task</string>
+
 </resources>

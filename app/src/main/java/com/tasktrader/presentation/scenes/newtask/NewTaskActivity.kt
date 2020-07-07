@@ -3,7 +3,9 @@ package com.tasktrader.presentation.scenes.newtask
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import com.tasktrader.R
 import com.tasktrader.databinding.ActivityNewTaskBinding
+import com.tasktrader.presentation.extensions.enableToolbar
 import com.tasktrader.presentation.scenes.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,5 +22,6 @@ class NewTaskActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNewTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        enableToolbar(binding.toolbar, R.string.new_task_title, true)
     }
 }
