@@ -1,0 +1,75 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdkVersion androidCompileVersion
+
+    defaultConfig {
+        applicationId "com.tasktrader"
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation project(":domain")
+
+    implementation kotlinStd
+    implementation fragmentKtx
+    implementation viewmodel
+    implementation lifecycle
+    implementation livedata
+    implementation navigation
+    implementation navigationFragment
+    implementation navigationUi
+    implementation appcompat
+    implementation constraintLayout
+
+    //TESTS
+    testImplementation junit
+
+    //DEPENDENCY INJECTION
+    implementation hiltAndroid
+    kapt hiltCompiler
+
+    //LOCAL DATABASE
+    implementation room
+    implementation roomKtx
+    kapt roomCompiler
+
+    //DEBUG
+    implementation timber
+
+    //ANDROID TESTS
+    androidTestImplementation junitAndroid
+    androidTestImplementation espresso
+
+}
