@@ -15,9 +15,9 @@
         <item name="colorSurface">@color/colorPitchDark</item>
         <item name="colorOnSurface">@color/colorSnow</item>
 
-        <item name="colorSecondary">@color/colorOrange</item>
+        <item name="colorSecondary">@color/colorYellow</item>
         <item name="colorOnSecondary">@color/colorPitchDark</item>
-        <item name="colorSecondaryVariant">@color/colorOrange</item>
+        <item name="colorSecondaryVariant">@color/colorYellow</item>
 
         <item name="colorError">@color/colorSalmon</item>
         <item name="colorOnError">@color/colorPitchDark</item>
