@@ -2,7 +2,6 @@ package com.tasktrader.data.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.tasktrader.BuildConfig
 import com.tasktrader.data.persistence.AppDatabase
 import com.tasktrader.data.persistence.DatabaseFactory
 import com.tasktrader.data.persistence.dao.TaskDao
@@ -69,6 +68,6 @@ object PersistenceModule {
     @Provides
     @Singleton
     fun providesSharedPreferences(@ApplicationContext context: Context): SharedPreferences {
-        return context.getSharedPreferences(BuildConfig.APPLICATION_ID, Context.MODE_PRIVATE)
+        return context.getSharedPreferences("PREFERENCES", Context.MODE_PRIVATE)
     }
 }

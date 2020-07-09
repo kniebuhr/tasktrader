@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion androidCompileVersion
+
+    defaultConfig {
+        minSdkVersion androidMinSdkVersion
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled true
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(":domain")
+
+    implementation kotlinStd
+
+    implementation hiltAndroid
+    kapt hiltCompiler
+
+    implementation timber
+
+    //LOCAL DATABASE
+    implementation room
+    implementation roomKtx
+    kapt roomCompiler
+
+    testImplementation junit
+    androidTestImplementation junitAndroid
+    androidTestImplementation espresso
+
+}
