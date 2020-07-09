@@ -1,0 +1,33 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Theme colors. -->
+        <item name="colorPrimary">@color/colorPitchDark</item>
+        <item name="colorPrimaryDark">@color/colorPitchDark</item>
+        <item name="colorAccent">@color/colorLilac</item>
+
+        <item name="colorPrimaryVariant">@color/colorLilac</item>
+        <item name="colorOnPrimary">@color/colorPitchDark</item>
+        <item name="colorPrimarySurface">@color/colorLilac</item>
+        <item name="colorOnPrimarySurface">@color/colorPitchDark</item>
+
+        <item name="colorSurface">@color/colorPitchDark</item>
+        <item name="colorOnSurface">@color/colorSnow</item>
+
+        <item name="colorSecondary">@color/colorOrange</item>
+        <item name="colorOnSecondary">@color/colorPitchDark</item>
+        <item name="colorSecondaryVariant">@color/colorOrange</item>
+
+        <item name="colorError">@color/colorSalmon</item>
+        <item name="colorOnError">@color/colorPitchDark</item>
+
+        <item name="android:windowBackground">@color/colorPitchDark</item>
+        <item name="android:colorBackground">@color/colorPitchDark</item>
+        <item name="colorOnBackground">@color/colorSnow</item>
+
+        <item name="colorControlNormal">@color/colorSnow</item>
+        <item name="colorControlActivated">@color/colorLilac</item>
+        <item name="colorControlHighlight">@color/colorLilac</item>
+    </style>
+
+</resources>
