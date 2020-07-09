@@ -2,6 +2,7 @@ package com.tasktrader.data.di
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.tasktrader.data.logger.TimberLogger
 import com.tasktrader.data.persistence.AppDatabase
 import com.tasktrader.data.persistence.DatabaseFactory
 import com.tasktrader.data.persistence.dao.TaskDao
@@ -13,37 +14,16 @@ import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import timber.log.Timber
 import javax.inject.Singleton
 
 @Module
 @InstallIn(ApplicationComponent::class)
 object PersistenceModule {
 
-    // TODO Atualizar isso para uma classe no módulo de data
     @Provides
+    @Singleton
     fun providesLogger(): Logger {
-        return object : Logger {
-            override fun d(block: () -> String) {
-                if (Timber.treeCount() > 0) {
-                    try {
-                        Timber.d(block())
-                    } catch (e: Exception) {
-                        Timber.e(e)
-                    }
-                }
-            }
-
-            override fun i(block: () -> String) {
-                if (Timber.treeCount() > 0) {
-                    try {
-                        Timber.i(block())
-                    } catch (e: Exception) {
-                        Timber.e(e)
-                    }
-                }
-            }
-        }
+        return TimberLogger()
     }
 
     @Provides
