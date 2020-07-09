@@ -6,5 +6,7 @@
 
     <!--NEW TASK-->
     <string name="new_task_title">Nova Task</string>
+    <string name="new_task_name_hint">Nome</string>
+    <string name="new_task_button">Adicionar</string>
 
 </resources>

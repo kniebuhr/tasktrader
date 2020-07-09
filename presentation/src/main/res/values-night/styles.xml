@@ -1,9 +1,10 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:statusBarColor">@color/colorTransparent</item>
         <!-- Theme colors. -->
-        <item name="colorPrimary">@color/colorPitchDark</item>
-        <item name="colorPrimaryDark">@color/colorPitchDark</item>
+        <item name="colorPrimary">@color/colorLilac</item>
+        <item name="colorPrimaryDark">@color/colorPurple</item>
         <item name="colorAccent">@color/colorLilac</item>
 
         <item name="colorPrimaryVariant">@color/colorLilac</item>
@@ -28,6 +29,7 @@
         <item name="colorControlNormal">@color/colorSnow</item>
         <item name="colorControlActivated">@color/colorLilac</item>
         <item name="colorControlHighlight">@color/colorLilac</item>
+
     </style>
 
 </resources>

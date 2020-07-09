@@ -2,14 +2,18 @@
 <resources>
 
     <color name="colorPurple">#7310f2</color>
-    <color name="colorLilac">#d695ff</color>
+    <color name="colorLilac">#e6c0ff</color>
 
     <color name="colorWhite">#ffffff</color>
     <color name="colorSnow">#eeeeee</color>
+    <color name="colorGray">#a4a4a4</color>
+    <color name="colorGraphite">#474747</color>
     <color name="colorPitchDark">#222222</color>
 
     <color name="colorRed">#f10000</color>
     <color name="colorSalmon">#ff7c5d</color>
     <color name="colorOrange">#ffa600</color>
+
+    <color name="colorTransparent">#00000000</color>
 
 </resources>
