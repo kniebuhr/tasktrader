@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.tasktrader.R
 import com.tasktrader.databinding.ActivityTaskListBinding
 import com.tasktrader.domain.model.Task
 import com.tasktrader.presentation.extensions.enableToolbar
+import com.tasktrader.presentation.extensions.makeToast
+import com.tasktrader.presentation.extensions.setVisible
 import com.tasktrader.presentation.scenes.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -29,8 +32,12 @@ class TaskListActivity : BaseActivity() {
         binding = ActivityTaskListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         enableToolbar(binding.toolbar, R.string.task_list_title)
-        setView()
+        setAdapter()
         setObservers()
+    }
+
+    override fun onResume() {
+        super.onResume()
         viewModel.handle(TaskListIntent.LoadData)
     }
 
@@ -49,21 +56,46 @@ class TaskListActivity : BaseActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setView() {
+    private fun setAdapter() {
         binding.recyclerView.apply {
+            layoutManager = LinearLayoutManager(this@TaskListActivity, LinearLayoutManager.VERTICAL, false)
             adapter = this@TaskListActivity.adapter
+        }
+
+        adapter.listener = object : TaskListAdapter.Listener {
+            override fun onItemCheckChanged(task: Task, position: Int) {
+                viewModel.handle(TaskListIntent.CompleteTask(task, position))
+            }
         }
     }
 
     private fun setObservers() {
         viewModel.model.observe(this, Observer { model ->
+            renderLoading(model.loading)
+            renderErrorMessage(model.errorMessage)
             renderData(model.data)
+            renderCompleteTask(model.completeTask, model.completeTaskPosition)
         })
+    }
+
+    private fun renderLoading(loading: Boolean) {
+        binding.loading.root.setVisible(loading)
+    }
+
+    private fun renderErrorMessage(message: String?) {
+        message?.let {
+            makeToast(it)
+        }
     }
 
     private fun renderData(data: List<Task>?) {
         data?.let {
             adapter.items = it.toMutableList()
         }
+    }
+
+    private fun renderCompleteTask(task: Task?, position: Int?) {
+        if (task == null || position == null) return
+        adapter.setItem(task, position)
     }
 }

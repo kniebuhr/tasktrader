@@ -2,6 +2,7 @@ package com.tasktrader.data.repository
 
 import com.tasktrader.data.di.IODispatcher
 import com.tasktrader.data.mapper.TaskMapper
+import com.tasktrader.data.persistence.entity.TaskEntity
 import com.tasktrader.data.persistence.processor.TaskProcessor
 import com.tasktrader.domain.logger.Logger
 import com.tasktrader.domain.model.Task
@@ -49,6 +50,13 @@ class TaskDataRepository @Inject constructor(
         logger.i { "completeTask invoked for task ${task.name}" }
         return withContext(dispatcher) {
             taskProcessor.update(task.id, !task.completed)
+        }
+    }
+
+    override suspend fun createTask(task: Task): Boolean {
+        logger.i { "createTask invoked for task ${task.name}" }
+        return withContext(dispatcher) {
+            taskProcessor.insert(taskMapper.transformToEntity(task.copy()))
         }
     }
 

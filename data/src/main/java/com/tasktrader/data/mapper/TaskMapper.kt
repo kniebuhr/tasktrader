@@ -17,9 +17,11 @@ class TaskMapper @Inject constructor() {
         return Task(
             id = entity.id,
             name = entity.name,
+            value = entity.value,
             completed = entity.completed
         )
     }
+
     /**
      * Transform a [TaskEntity] collection into a list of [Task]
      * @param entityCollection Object collection to be transformed
@@ -42,9 +44,11 @@ class TaskMapper @Inject constructor() {
         return TaskEntity(
             id = model.id,
             name = model.name,
+            value = model.value,
             completed = model.completed
         )
     }
+
     /**
      * Transform a [Task] collection into a list of [TaskEntity]
      * @param modelCollection Object collection to be transformed

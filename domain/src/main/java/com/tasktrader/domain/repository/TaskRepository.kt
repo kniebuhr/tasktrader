@@ -18,5 +18,7 @@ interface TaskRepository {
 
     suspend fun completeTask(task: Task): Boolean
 
+    suspend fun createTask(task: Task): Boolean
+
     //endregion
 }

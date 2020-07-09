@@ -29,7 +29,8 @@ class TaskListViewModel(
 
     private fun handleLoadData() {
         viewModelScope.launch {
-            val result = getTaskList.execute(Any())
+            _model.value = TaskListModel.createLoading()
+            val result = getTaskList.execute(Unit)
             _model.value = if (result.isSuccessful) {
                 TaskListModel.createData(result.getResult())
             } else {
@@ -40,6 +41,7 @@ class TaskListViewModel(
 
     private fun handleCompleteTask(task: Task, position: Int) {
         viewModelScope.launch {
+            _model.value = TaskListModel.createLoading()
             val result = completeTask.execute(task).run { getTask.execute(task.id) }
             _model.value = if (result.isSuccessful) {
                 TaskListModel.createCompleteTask(result.getResult(), position)

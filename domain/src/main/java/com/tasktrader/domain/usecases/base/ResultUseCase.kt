@@ -6,7 +6,9 @@ abstract class ResultUseCase<R, in Parameter>(private val logger: Logger) : UseC
 
     protected suspend fun mapToResult(block: suspend () -> R): Result<R> {
         return try {
-            Result(block.invoke(), null)
+            Result(block.invoke().also {
+                logger.i { "$it" }
+            }, null)
         } catch (e: Exception) {
             Result(null, e)
         }

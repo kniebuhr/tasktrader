@@ -11,6 +11,12 @@ import javax.inject.Inject
 @ActivityScoped
 class TaskListAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    interface Listener {
+        fun onItemCheckChanged(task: Task, position: Int)
+    }
+
+    var listener: Listener? = null
+
     var items = mutableListOf<Task>()
         set(value) {
             field = value
@@ -32,14 +38,19 @@ class TaskListAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is ItemViewHolder -> holder.bind(items[position])
+            is ItemViewHolder -> holder.bind(items[position], position)
         }
     }
 
     private inner class ItemViewHolder(private val binding: ItemTaskBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(task: Task) {
-            binding.name.text = task.name
+        private var isBinding = false
+        fun bind(task: Task, position: Int) {
+            binding.value.text = task.value.toString()
+            binding.checkbox.text = task.name
             binding.checkbox.isChecked = task.completed
+            binding.checkbox.setOnCheckedChangeListener { _, _ ->
+                if (!isBinding) listener?.onItemCheckChanged(task, position)
+            }
         }
     }
 }

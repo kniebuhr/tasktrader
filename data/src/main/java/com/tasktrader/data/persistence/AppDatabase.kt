@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.tasktrader.data.persistence.dao.TaskDao
 import com.tasktrader.data.persistence.entity.TaskEntity
 
-@Database(entities = [TaskEntity::class], version = 1, exportSchema = false)
+@Database(entities = [TaskEntity::class], version = 3, exportSchema = false)
 abstract class AppDatabase: RoomDatabase() {
 
     abstract fun taskDao(): TaskDao

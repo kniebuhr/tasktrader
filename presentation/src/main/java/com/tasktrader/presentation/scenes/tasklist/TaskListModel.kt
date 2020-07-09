@@ -12,14 +12,18 @@ data class TaskListModel(
 ) {
 
     companion object {
+
+        fun createLoading() =
+            TaskListModel(loading = true)
+
+        fun createError(message: String?) =
+            TaskListModel(errorMessage = message)
+
         fun createData(data: List<Task>) =
             TaskListModel(data = data)
 
         fun createCompleteTask(task: Task, position: Int) =
             TaskListModel(completeTask = task,
                 completeTaskPosition = position)
-
-        fun createError(message: String?) =
-            TaskListModel(errorMessage = message)
     }
 }
