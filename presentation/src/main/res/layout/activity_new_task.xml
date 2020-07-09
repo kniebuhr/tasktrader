@@ -39,6 +39,7 @@
         android:hint="@string/new_task_value_hint"
         app:endIconDrawable="@drawable/ic_value"
         app:endIconMode="custom"
+        app:endIconTint="?attr/colorSecondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/name">
