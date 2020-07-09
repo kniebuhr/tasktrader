@@ -24,18 +24,22 @@ android {
 dependencies {
     implementation project(":domain")
 
+    //KOTLIN
     implementation kotlinStd
-
-    implementation hiltAndroid
-    kapt hiltCompiler
-
-    implementation timber
 
     //LOCAL DATABASE
     implementation room
     implementation roomKtx
     kapt roomCompiler
 
+    //DEPENDENCY INJECTION
+    implementation hiltAndroid
+    kapt hiltCompiler
+
+    //DEBUG
+    implementation timber
+
+    //TESTS
     testImplementation junit
     androidTestImplementation junitAndroid
     androidTestImplementation espresso

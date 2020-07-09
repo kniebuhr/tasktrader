@@ -40,19 +40,28 @@ android {
 }
 
 dependencies {
+
     implementation project(":domain")
     implementation project(":data")
 
+    //KOTLIN
     implementation kotlinStd
+
+    //UI
     implementation fragmentKtx
+    implementation appcompat
+    implementation constraintLayout
+    implementation materialComponents
+
+    //ARCHITECTURE
     implementation viewmodel
     implementation lifecycle
     implementation livedata
+
+    //NAVIGATION
     implementation navigation
     implementation navigationFragment
     implementation navigationUi
-    implementation appcompat
-    implementation constraintLayout
 
     //TESTS
     testImplementation junit
