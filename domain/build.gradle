@@ -7,4 +7,10 @@ dependencies {
 
     //DEPENDENCY INJECTION
     implementation hiltAndroid
+
+    // TEST
+    testImplementation coroutinesTest
+    testImplementation junit
+    testImplementation mockitoInline
+    testImplementation mockitoKotlin
 }

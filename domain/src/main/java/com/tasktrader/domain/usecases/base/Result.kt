@@ -9,10 +9,10 @@ class Result<out Result>(
     val isFailure = throwable != null
 
     fun getResult(): Result {
-        return result ?: throw Throwable("Calling getResult on unsuccessful result")
+        return result ?: throw RuntimeException("Calling getResult on unsuccessful result")
     }
 
     fun getException(): Throwable {
-        return throwable ?: throw Throwable("Calling getException on successful result")
+        return throwable ?: throw RuntimeException("Calling getException on successful result")
     }
 }
