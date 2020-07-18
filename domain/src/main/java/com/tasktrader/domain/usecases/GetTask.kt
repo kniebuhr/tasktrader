@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class GetTask @Inject constructor(
     private val repository: TaskRepository,
-    logger: Logger
+    logger: Logger? = null
 ) : ResultUseCase<Task, Long>(logger) {
 
     override suspend fun build(param: Long): Result<Task> {
