@@ -22,7 +22,6 @@ class GetTaskListTest {
     fun buildUseCase() {
         runBlocking {
             val taskList = listOf(Task(0L, "Teste", 100, true))
-
             whenever(repository.getListTask()).thenReturn(taskList)
 
             val result = useCase.execute(Unit)
@@ -36,7 +35,6 @@ class GetTaskListTest {
     fun buildUseCaseError() {
         runBlocking {
             val throwable = RuntimeException("Teste")
-
             whenever(repository.getListTask()).thenThrow(throwable)
 
             val result = useCase.execute(Unit)
@@ -50,7 +48,6 @@ class GetTaskListTest {
     fun buildUseCaseThrowsWhenGettingResultFromError() {
         runBlocking {
             val throwable = RuntimeException("Teste")
-
             whenever(repository.getListTask()).thenThrow(throwable)
 
             useCase.execute(Unit).getResult()
@@ -63,7 +60,6 @@ class GetTaskListTest {
     fun buildUseCaseThrowsWhenGettingErrorFromSuccess() {
         runBlocking {
             val taskList = listOf(Task(0L, "Teste", 100, true))
-
             whenever(repository.getListTask()).thenReturn(taskList)
 
             useCase.execute(Unit).getException()

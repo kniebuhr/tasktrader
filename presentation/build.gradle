@@ -63,9 +63,6 @@ dependencies {
     implementation navigationFragment
     implementation navigationUi
 
-    //TESTS
-    testImplementation junit
-
     //DEPENDENCY INJECTION
     implementation hiltAndroid
     kapt hiltCompiler
@@ -78,8 +75,17 @@ dependencies {
     //DEBUG
     implementation timber
 
+    //TESTS
+    testImplementation junit
+    testImplementation mockitoKotlin
+    testImplementation mockitoInline
+
     //ANDROID TESTS
-    androidTestImplementation junitAndroid
-    androidTestImplementation espresso
+    androidTestImplementation multidexInstrumentation
+    androidTestImplementation androidXTestRunner
+    androidTestImplementation androidXTestRules
+    androidTestImplementation espressoCore
+    androidTestImplementation espressoIntents
+    androidTestImplementation espressoContrib
 
 }

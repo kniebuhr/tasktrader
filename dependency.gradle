@@ -28,14 +28,6 @@ ext {
     constraintLayout = 'androidx.constraintlayout:constraintlayout:1.1.3'
     materialComponents = 'com.google.android.material:material:1.1.0'
 
-    //TESTS
-    junit = 'junit:junit:4.13'
-    junitAndroid = 'androidx.test.ext:junit:1.1.1'
-    coroutinesTest = 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.7'
-    espresso = 'androidx.test.espresso:espresso-core:3.2.0'
-    mockitoInline = "org.mockito:mockito-inline:3.3.3"
-    mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
-
     //HILT
     hiltAndroid = "com.google.dagger:hilt-android:${ext.hilt_version}"
     hiltCompiler = "com.google.dagger:hilt-android-compiler:${ext.hilt_version}"
@@ -48,4 +40,20 @@ ext {
 
     //TIMBER
     timber = "com.jakewharton.timber:timber:4.7.1"
+
+    //TESTS
+    junit = 'junit:junit:4.13'
+    junitAndroid = 'androidx.test.ext:junit:1.1.1'
+    coroutinesTest = 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.7'
+    mockitoInline = "org.mockito:mockito-inline:3.3.3"
+    mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
+
+    //ANDROID TESTS
+    androidXTestRunner = "androidx.test:runner:1.2.0"
+    androidXTestJunit = "androidx.test.ext:junit:1.1.1"
+    androidXTestRules = "androidx.test:rules:1.2.0"
+    espressoCore = "androidx.test.espresso:espresso-core:3.2.0"
+    espressoIntents = "androidx.test.espresso:espresso-intents:3.2.0"
+    espressoContrib = "androidx.test.espresso:espresso-contrib:3.2.0"
+    multidexInstrumentation = "androidx.multidex:multidex-instrumentation:2.0.0"
 }

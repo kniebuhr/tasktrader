@@ -39,9 +39,14 @@ dependencies {
     //DEBUG
     implementation timber
 
-    //TESTS
+    // TEST
     testImplementation junit
-    androidTestImplementation junitAndroid
-    androidTestImplementation espresso
+    testImplementation androidXTestRunner
+    testImplementation mockitoInline
+    testImplementation mockitoKotlin
 
+    // ANDROID TEST
+    androidTestImplementation androidXTestRunner
+    androidTestImplementation androidXTestJunit
+    androidTestImplementation espressoCore
 }

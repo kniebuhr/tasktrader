@@ -12,11 +12,12 @@ import com.tasktrader.presentation.extensions.enableToolbar
 import com.tasktrader.presentation.extensions.makeToast
 import com.tasktrader.presentation.extensions.setVisible
 import com.tasktrader.presentation.scenes.base.BaseActivity
+import com.tasktrader.presentation.scenes.base.BaseView
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class TaskListActivity : BaseActivity() {
+class TaskListActivity : BaseView<TaskListModel>, BaseActivity() {
 
     companion object {
         const val MENU_ADD = 1
@@ -71,11 +72,15 @@ class TaskListActivity : BaseActivity() {
 
     private fun setObservers() {
         viewModel.model.observe(this, Observer { model ->
-            renderLoading(model.loading)
-            renderErrorMessage(model.errorMessage)
-            renderData(model.data)
-            renderCompleteTask(model.completeTask, model.completeTaskPosition)
+            render(model)
         })
+    }
+
+    override fun render(model: TaskListModel) {
+        renderLoading(model.loading)
+        renderErrorMessage(model.errorMessage)
+        renderData(model.data)
+        renderCompleteTask(model.completeTask, model.completeTaskPosition)
     }
 
     private fun renderLoading(loading: Boolean) {
