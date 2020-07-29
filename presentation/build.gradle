@@ -27,6 +27,12 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        // For Android Test
+        debugTest {
+            initWith(debug)
+            minifyEnabled false
+        }
+        testBuildType 'debugTest'
     }
 
     buildFeatures {

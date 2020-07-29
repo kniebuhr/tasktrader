@@ -1,5 +1,7 @@
 package com.tasktrader.presentation.scenes.tasklist
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -21,6 +23,8 @@ class TaskListActivity : BaseView<TaskListModel>, BaseActivity() {
 
     companion object {
         const val MENU_ADD = 1
+
+        fun newIntent(context: Context) = Intent(context, TaskListActivity::class.java)
     }
 
     @Inject lateinit var viewModel: TaskListViewModel

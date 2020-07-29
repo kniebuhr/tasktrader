@@ -3,6 +3,9 @@ package com.tasktrader.presentation.scenes.tasklist
 import com.tasktrader.domain.model.Task
 import com.tasktrader.presentation.scenes.base.BaseView
 import com.tasktrader.presentation.scenes.base.Robot
+import com.tasktrader.R.id.*
+import com.tasktrader.presentation.extensions.checkAdapterItemContent
+import com.tasktrader.presentation.extensions.checkIsDisplayed
 
 class TaskListRobot(view: BaseView<TaskListModel>? = null) : Robot<TaskListModel>(view) {
 
@@ -29,6 +32,15 @@ class TaskListRobot(view: BaseView<TaskListModel>? = null) : Robot<TaskListModel
     //endregion
 
     //region VIEWS
+
+    fun loading(displayed: Boolean = true) {
+        progress.checkIsDisplayed(displayed)
+    }
+
+    fun data(item: Task) {
+        recyclerView.checkAdapterItemContent(0, item.name)
+        recyclerView.checkAdapterItemContent(0, item.value.toString())
+    }
 
     //endregion
 }
