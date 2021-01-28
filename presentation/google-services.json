@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "691241903387",
+    "project_id": "task-trader-a11e6",
+    "storage_bucket": "task-trader-a11e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691241903387:android:e735ec8bb40f3616749fbe",
+        "android_client_info": {
+          "package_name": "com.tasktrader"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691241903387-9nv1cp6og1eeds20ooltskivqs7r4a7n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCAsDZ0PNgBF5OEsnHliA0b5b0wHj6d4o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691241903387-9nv1cp6og1eeds20ooltskivqs7r4a7n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
