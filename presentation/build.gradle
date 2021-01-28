@@ -3,9 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'com.google.firebase.appdistribution'
 apply plugin: 'com.google.gms.google-services'
 
 android {
+
     compileSdkVersion androidCompileVersion
 
     defaultConfig {
@@ -16,6 +18,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner androidJUniuRunner
+
+        firebaseAppDistribution {
+            serviceCredentialsFile= "$rootDir/keys/task-trader-a11e6-31d970bfd553.json"
+        }
     }
 
     buildTypes {
