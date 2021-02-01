@@ -9,6 +9,8 @@ jobs:
     steps:
       - checkout
       - run:
+          sudo chmod +x ./gradlew
+      - run:
           ./gradlew androidDependencies
       - run:
           ./gradlew assembleRelease appDistributionUploadRelease
