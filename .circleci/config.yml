@@ -7,4 +7,4 @@ jobs:
       - image: mingc/android-build-box:latest
     steps:
       - run:
-          ./gradlew assembleRelease appDistributionUploadRelease 
+          ls
